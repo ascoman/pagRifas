@@ -1,0 +1,23 @@
+RewriteEngine on
+
+    #COMMENT | Please read this comment carefully BEFORE uncommenting Rewritebase
+    #COMMENT | if your site domain homepage looks like this http://www.example.com/index.php do not uncomment
+    #COMMENT | if your site domain url looks like this http://www.example.com/something/index.php uncomment
+    #RewriteBase /add somethings name here/
+
+    Options -Indexes
+
+    IndexIgnore *
+
+    Options +FollowSymLinks
+
+    DirectoryIndex index.php index.html
+
+    #COMMENT | This denys other sites from IFraming your site. It prevents clickjacking.
+    Header always append X-Frame-Options DENY
+
+    #COMMENT | This will enforce SSL on all pages. You must have a SSL certificate installed first.
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://rifas.twoshop.mx/$1 [R,L]
+
+  
