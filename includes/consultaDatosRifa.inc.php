@@ -3,7 +3,6 @@ session_start();
 
 if (isset($_POST['cargardatosrifa'])){
 require 'dbh.inc.php';
-
   $numrifa = $_POST['numrifa'];
 
   if(empty($numrifa) || $numrifa==0){
@@ -50,8 +49,7 @@ require 'dbh.inc.php';
   }
 }
 else {
-  header("Location: ../index.php");
+  header("Location: ../index.php?error=nocarga");
   }
-  $connection->close();
   exit();
  ?>

@@ -53,13 +53,6 @@ require 'dbh.inc.php';
                         if ($row[6] > 0)
                         {
 
-                          $picname = "picPrem/".$row[8];
-                          echo '<div class="w3-card w3-section w3-round my-section-color" style="width:20%">
-                                  <img src="'.$picname.'" class="w3-image w3-round-large" alt="premio" style="width:100%">
-                                  '.$row[7].'
-
-                                </div>';
-                        }
 
                         if ($row[3] > 0)
                         {
@@ -95,6 +88,15 @@ require 'dbh.inc.php';
                                 echo "</div>";
                           }
                         }
+
+                        $picname = "picPrem/".$row[8];
+                        echo '<div class="w3-card w3-section w3-round my-section-color" style="width:20%; min-width:150px">
+                                <img title="'.$row[7].'" src="'.$picname.'" class="w3-image w3-round-large" alt="premio" style="width:100%"
+                                onclick="onClick(this)" class="w3-hover-opacity">
+                                '.$row[7].'
+
+                              </div>';
+                      }
 
                 }
                 else
@@ -133,3 +135,18 @@ echo "</div>";///div2
 }
 
  ?>
+ <div id="modal01" class="w3-modal shadowfilter" onclick="this.style.display='none'" style="padding-top: 170px;">
+        <div class="w3-modal-content w3-animate-top">
+          <img id="img01" style="width:80%">
+          <h4 id="txt01"></h4>
+        </div>
+</div>
+
+ <script>
+          function onClick(element)
+          {
+            document.getElementById("txt01").innerHTML = element.title;
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+          }
+</script>

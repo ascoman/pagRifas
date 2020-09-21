@@ -4,7 +4,6 @@ if (isset($_POST['liberarifa'])){
 require 'dbh.inc.php';
 
   $numrifa = $_SESSION['idrifa'];
-//  $_SESSION['nomrifa'] = $_POST['nomrifa'];
 
   if(empty($numrifa) ){
     header("Location: ../index.php?error=numrifa");
@@ -23,7 +22,7 @@ require 'dbh.inc.php';
       $result = mysqli_stmt_get_result($stmt);
       if ($row = mysqli_fetch_assoc($result))
       {
-        if ($row['usuarios_sin_Seleccionar'] == 0)
+        if ($row['0'] == 0)
         {
 
           echo '<form method="POST" id="idu_da3" action = "consultaDatosRifa.inc.php">
@@ -53,21 +52,23 @@ require 'dbh.inc.php';
              document.forms['idu_da3'].submit();
 
              </script>";
+
+             header("Location: ../index.php");
         }
 
       }
-
-      header("Location: ../index.php");
-
+      else
+      {
+        header("Location: ../index.php?error=nofetchlibera");
+      }
     }
   }
 }
 else
 {
 
-  header("Location: ../index.php");
+  header("Location: ../index.php?error=nolibera");
 }
-  $connection->close();
   exit();
 
  ?>

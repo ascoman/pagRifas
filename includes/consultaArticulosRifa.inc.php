@@ -34,7 +34,7 @@ require 'dbh.inc.php';
             {
 
               echo '<div class="w3-card-4 w3-margin w3-round-large" style="width:20%">
-                      <img src="'.$picname.'" class="w3-round-large"  alt="Item" style="width:100%"
+                      <img title="'.$row[1].'" src="'.$picname.'" class="w3-round-large"  alt="Item" style="width:100%"
                                                   onclick="onClick(this)" class="w3-hover-opacity">
                   </div>';
 
@@ -96,15 +96,16 @@ require 'dbh.inc.php';
  ?>
 <div id="modal01" class="w3-modal shadowfilter" onclick="this.style.display='none'" style="padding-top: 170px;">
        <div class="w3-modal-content w3-animate-top">
-         <img id="img01" style="width:60%">
+         <img id="img01" style="width:80%">
+         <h4 id="txt01"></h4>
        </div>
      </div>
 
 <script>
          function onClick(element)
          {
+           document.getElementById("txt01").innerHTML = element.title;
            document.getElementById("img01").src = element.src;
-element.src;
            document.getElementById("modal01").style.display = "block";
          }
      </script>

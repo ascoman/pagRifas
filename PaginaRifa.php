@@ -20,7 +20,13 @@
           echo '<div class="w3-container my-section-color w3-round-large w3-center" style="box-shadow:0 5px 10px 0">';
                 if ($_SESSION['num_seleccionado'] > 0 )
                 {
-                  echo '<h1 >Tu numero seleccionado es el '.$_SESSION['num_seleccionado'].'!! SUERTE!!</h1>';
+                  if  ($_SESSION['revela']== 0)
+                  {
+                    echo '<h1 >Tu numero seleccionado es el '.$_SESSION['num_seleccionado'].'!! SUERTE!!</h1>';
+                  }
+                  else {
+                    echo '<h1 >Tu numero seleccionado es el '.$_SESSION['num_seleccionado'].'!! FELICIDADES!!</h1>';
+                  }
 
                 }
                 else
@@ -28,7 +34,7 @@
                   echo  '<h1 >Selecciona tu numero!!</h1>';
                 }
 
-                if ($_SESSION['rifa_liberada'] == 1)
+                if ($_SESSION['rifa_liberada'] == 1 && $_SESSION['revela']== 0)
                 {
 
                   echo '<form action="includes/revres.inc.php" method="post">

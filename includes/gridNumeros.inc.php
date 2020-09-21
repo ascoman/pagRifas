@@ -42,16 +42,31 @@ else
 
                     if ( $_SESSION['revela'] == 1 )
                     {
-                      echo  '<div class="w3-col s4 m4r l5r w3-center  my-grid-margin w3-display-container" >
-                              <img src="picPrem/'.$row[5].'" class="w3-round-large my-center2 num-sqare-format-in-prem" style:"display: block">
-                              <img src="img/square-frame.png" class=" num-sqare-format-out shadowfilter">';
+                      echo  '<div class="w3-col s3 m4r l5r w3-center  my-grid-margin w3-display-container" >
+                              <img title= "'.$row[4].'" src="picPrem/'.$row[5].'" class="w3-round-large my-center2 num-sqare-format-in-prem" style:"display: block"
+                              onclick="onClick(this)" class="w3-hover-opacity">
+                              <img src="img/square-frame.png" class="num-sqare-format-out shadowfilter">';
+
+                              if (  $row[0] == $row[1] )
+                              {
+                                echo  '<button id="fittext'.$row[0].'" class="tran-button-selected w3-display-middle w3-text-black num-sqare-text w3-round-xlarge" style:"pointer-events: none">'.$row[0].'</button>';///es el numero del usuario
+                              }
+                              else if ( $row[2] > 0 )
+                              {
+                                echo  '<button id="fittext'.$row[0].'" class="tran-button-disabled w3-display-middle w3-text-black num-sqare-text w3-round-xlarge" style:"pointer-events: none">'.$row[0].'</button>';////es el numero de otro usuario
+                              }
+                              else if ($row[1] >0 )
+                              {
+                                echo  '<button id="fittext'.$row[0].'" class="tran-button-noselec w3-display-middle w3-text-black num-sqare-text w3-round-xlarge" style:"pointer-events: none">'.$row[0].'</button>';////disponible pero ya no puede seleccionar
+                              }
 
                     }
-                    else {
-                      echo  '<div class="w3-col s4 m4r l5r w3-center  my-grid-margin w3-display-container" >
+                    else
+                    {
+                      echo  '<div class="w3-col s3 m4r l5r w3-center  my-grid-margin w3-display-container" >
                               <img src="img/clover-framed-card.jpg" class="w3-round-large num-sqare-format-in " style:"display: block">
                               <img src="img/square-frame.png" class=" num-sqare-format-out shadowfilter">';
-                    }
+
 
 
                     if (  $row[0] == $row[1] )
@@ -73,12 +88,12 @@ else
                                        <button id="fittext'.$row[0].'" class="tran-button w3-display-middle w3-text-black num-sqare-text w3-round-xlarge tran-buttonH" type="submit" name="selectNumPart">'.$row[0].'</button>
                                        </form>';
                     }
+                }
 
                 echo    "<script src=\"fittext.js\"></script>
                     <script type=\"text/javascript\">
                       fitText(document.getElementById('fittext".$row[0]."'), 0.3)
                     </script>";
-
 
               echo  '</div>';
 
@@ -86,9 +101,6 @@ else
           echo  '</div>';
           echo  '</div>';
   }
-
-
-
 }
 echo '</div>
 </div>';

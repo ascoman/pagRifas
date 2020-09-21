@@ -267,6 +267,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
     .num-sqare-format-out {
       width: 100%;
+      pointer-events: none;
       position:relative;
 
    }
@@ -342,6 +343,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
   background-repeat:no-repeat;
   border: none;
   overflow: hidden;
+  pointer-events: none;
 }
 .tran-button-noselec {
   width: 100%;
@@ -352,6 +354,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
   background-repeat:no-repeat;
   border: none;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .tran-button-selected {
@@ -362,6 +365,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
   background-repeat:no-repeat;
   border: none;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .my-banner {

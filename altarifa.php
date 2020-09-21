@@ -1,8 +1,6 @@
 <div class="w3-container w3-section my-panel-color w3-round-large">
 <?php
 
-
-
   echo '<div class= "w3-container w3-center">';///div2
 
           if (isset($_SESSION['idrifa']))

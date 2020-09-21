@@ -29,15 +29,16 @@ else
       </style>
       <body>';
 
-echo '<div class="w3-content w3-display-container w3-center w3-mobile w3-padding" style="height:10%; width:15%">';/////d1
+echo '<div class="w3-content w3-display-container w3-center w3-mobile w3-padding" style="height:10%; width:10%; min-width:25%">';/////d1
 
       $y = 0;
         while ( $row = mysqli_fetch_row($result))
         {
           $picname = "picPrem/".$row[2];
           echo '<div class="w3-card-4 w3-round-large mySlides my-section-color " >';////d2
-                  echo '<img class="w3-round-large " src="'.$picname.'" style="width:100%;max-width:500px;max-height:500px; object-fit: cover">';
-echo $row[1];
+                  echo '<img title="'.$row[1].'" class="w3-round-large"  src="'.$picname.'" style="width:100%;max-width:500px;max-height:500px; object-fit: cover"
+                  onclick="onClick(this)">';
+
 
           echo '</div>';/////d2
           $y++;
@@ -58,27 +59,42 @@ echo $row[1];
 
 
 
-  echo         '<script>
-          var slideIndex = 1;
-          showDivs(slideIndex);
-
-          function plusDivs(n) {
-            showDivs(slideIndex += n);
-          }
-
-          function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            if (n > x.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = x.length}
-            for (i = 0; i < x.length; i++) {
-               x[i].style.display = "none";
-            }
-            x[slideIndex-1].style.display = "block";
-          }
-          </script>
-
-          </body>';
+  echo         '</body>';
         }
 }
  ?>
+ <script>
+         var slideIndex = 1;
+         showDivs(slideIndex);
+
+         function plusDivs(n) {
+           showDivs(slideIndex += n);
+         }
+
+         function showDivs(n) {
+           var i;
+           var x = document.getElementsByClassName("mySlides");
+           if (n > x.length) {slideIndex = 1}
+           if (n < 1) {slideIndex = x.length}
+           for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";
+           }
+           x[slideIndex-1].style.display = "block";
+         }
+  </script>
+
+  <div id="modal01" class="w3-modal shadowfilter" onclick="this.style.display='none'" style="padding-top: 170px;">
+         <div class="w3-modal-content w3-animate-top">
+           <img id="img01" style="width:80%">
+           <h4 id="txt01"></h4>
+         </div>
+</div>
+
+  <script>
+           function onClick(element)
+           {
+              document.getElementById("txt01").innerHTML = element.title;
+             document.getElementById("img01").src = element.src;
+             document.getElementById("modal01").style.display = "block";
+           }
+</script>
