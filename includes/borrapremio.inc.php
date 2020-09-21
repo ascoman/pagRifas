@@ -25,9 +25,14 @@ if (isset($_POST['borrapremio'])) {
           mysqli_stmt_bind_param($stmt, "ii", $_SESSION['idrifa'], $numImagen );
 
           mysqli_stmt_execute($stmt);
-        }
-      }
 
-      header("Location: ../index.php?deleteOK");
+          header("Location: ../index.php?deleteOK");
+        }
+
+      }
+      else
+      {
+        header("Location: ../index.php?unlinkerror");
+      }
 }
  ?>

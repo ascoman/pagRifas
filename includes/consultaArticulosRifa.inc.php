@@ -44,7 +44,7 @@ require 'dbh.inc.php';
                             <h4><b>'.$row[1].'</b></h4>
                           </div>';
 
-                  echo '<form action="includes/borrapremio.inc.php" method="POST" enctype="multipart/form-data">
+                  echo '<form action="includes/borrapremio.inc.php" method="POST" enctype="multipart/form-data" onsubmit="return confirm(\'Confirma borrar premio?\');">
                           <div class="w3-margin">
                             <input type="hidden" name="numImagen" value='.$row[0].'>
                             <input type="hidden" name="nombreImagen" value='.$picname.'>
