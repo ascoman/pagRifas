@@ -33,13 +33,13 @@ require 'dbh.inc.php';
                     <h1><b>Codigo : '.$row[0].'</b></h1>
                     </div>';
               echo  '<div class= "w3-table arrange-horizontally vertical-center">';
-                    if ($row[1] > 0 )
+                    if ($row[1] > 0 )/////idu_usuario
                     {
                           echo '<div class="w3-cell-middle w3-section">
                                   <h4><b>Nombre : '.$row[2].'</b></h4>
                                 </div>';
 
-                          if ($row[4] > 0)
+                          if ($row[4] > 0)//////num_rifa
                           {
                             $date = date_create($row[5]);
                             echo '<div class="w3-padding">
@@ -50,53 +50,53 @@ require 'dbh.inc.php';
                                   </div>';
                         }
 
-                        if ($row[6] > 0)
-                        {
+                          if ($row[3] > 0)//////opc_pagado
+                          {
+                            echo '<div class="panel w3-margin w3-cell-middle w3-section my-section-color ">
+                                    <h4><b>PAGADO</b></h4>
+                                  </div>';
 
-
-                        if ($row[3] > 0)
-                        {
-                          echo '<div class="panel w3-margin w3-cell-middle w3-section my-section-color ">
-                                  <h4><b>PAGADO</b></h4>
-                                </div>';
-
-                        }
-                        else
-                        {
-                            echo '<div class="w3-cell-middle w3-section">';
-                            echo '<form action = "includes/borraParticipante.inc.php" method="post" onsubmit="return confirm(\'Confirma borrar participante?\');">
-                                  <div class="w3-padding">
-                                      <input type="hidden" name="idParticipante" value='.$row[1].'>
-                                      <div class="w3-quarter">
-                                        <button class="w3-btn w3-ripple w3-round-large my-accent-color" type="submit" name="borrarParticipante">Borrar participante</button>
-                                      </div>
-                                  </div>
-                                </form>';
-                            echo "</div>";
-
-                            if ($_SESSION['rifa_liberada'] == 0)
-                            {
-                                echo '<div class="w3-cell-middle w3-section">';
-                                echo '<form action = "includes/pagaParticipante.inc.php" method="post" onsubmit="return confirm(\'Confirma marcar participante como pagado?\');">
-                                      <div class="w3-padding">
-                                          <input type="hidden" name="idParticipante" value='.$row[1].'>
-                                          <div class="w3-quarter">
-                                            <button class="w3-btn w3-ripple w3-round-large my-accent-color" type="submit" name="pagarParticipante">Marcar pagado</button>
-                                          </div>
-                                      </div>
-                                    </form>';
-                                echo "</div>";
                           }
+                          else
+                          {
+                              echo '<div class="w3-cell-middle w3-section">';
+                              echo '<form action = "includes/borraParticipante.inc.php" method="post" onsubmit="return confirm(\'Confirma borrar participante?\');">
+                                    <div class="w3-padding">
+                                        <input type="hidden" name="idParticipante" value='.$row[1].'>
+                                        <div class="w3-quarter">
+                                          <button class="w3-btn w3-ripple w3-round-large my-accent-color" type="submit" name="borrarParticipante">Borrar participante</button>
+                                        </div>
+                                    </div>
+                                  </form>';
+                              echo "</div>";
+
+                              if ($_SESSION['rifa_liberada'] == 0)
+                              {
+                                  echo '<div class="w3-cell-middle w3-section">';
+                                  echo '<form action = "includes/pagaParticipante.inc.php" method="post" onsubmit="return confirm(\'Confirma marcar participante como pagado?\');">
+                                        <div class="w3-padding">
+                                            <input type="hidden" name="idParticipante" value='.$row[1].'>
+                                            <div class="w3-quarter">
+                                              <button class="w3-btn w3-ripple w3-round-large my-accent-color" type="submit" name="pagarParticipante">Marcar pagado</button>
+                                            </div>
+                                        </div>
+                                      </form>';
+                                  echo "</div>";
+                            }
+
                         }
 
-                        $picname = "picPrem/".$row[8];
-                        echo '<div class="w3-card w3-section w3-round my-section-color" style="width:20%; min-width:150px">
-                                <img title="'.$row[7].'" src="'.$picname.'" class="w3-image w3-round-large" alt="premio" style="width:100%"
-                                onclick="onClick(this)" class="w3-hover-opacity">
-                                '.$row[7].'
+                        if ($_SESSION['rifa_liberada'] == 1)
+                        {
 
-                              </div>';
-                      }
+                            $picname = "picPrem/".$row[8];
+                            echo '<div class="w3-card w3-section w3-round my-section-color" style="width:20%; min-width:150px">
+                                    <img title="'.$row[7].'" src="'.$picname.'" class="w3-image w3-round-large" alt="premio" style="width:100%"
+                                    onclick="onClick(this)" class="w3-hover-opacity">
+                                    '.$row[7].'
+
+                                  </div>';
+                        }
 
                 }
                 else
