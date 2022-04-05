@@ -24,6 +24,5 @@ steps:
 
 
 - script: 
-    chmod +x D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\phpunit-9.5.phar
-    D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\phpunit-9.5.phar --version
+    D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\phpunit --version
   displayName: 'Run tests with phpunit'
