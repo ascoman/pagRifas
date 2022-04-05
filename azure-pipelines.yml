@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:  
-   name: LocalAgent 
+   name: PRINCIPAL 
 
 variables:
   phpVersion: 7.2
