@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:  
-   name: PRINCIPAL 
+   name: Default 
 
 variables:
   phpVersion: 7.2
