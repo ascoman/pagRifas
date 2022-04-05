@@ -22,5 +22,8 @@ steps:
     D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\php D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\phpunit-9.5.phar --version
+
+- script: 
+    chmod +x D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\phpunit-9.5.phar
+    D:\Instaladores\laragon\bin\php\php-7.4.10-Win32-vc15-x64\phpunit-9.5.phar --version
   displayName: 'Run tests with phpunit'
